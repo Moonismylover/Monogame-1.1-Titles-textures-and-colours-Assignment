@@ -69,7 +69,7 @@ namespace Monogame_1._1___Titles__textures__and_colours__Assignment_
             _spriteBatch.Draw(dovetexture, new Vector2(0, 20), Color.White);
             _spriteBatch.Draw(cloudtexture, new Vector2(10, 0), Color.White);
 
-            for (int i = 0, )
+            for (int i = 0, i < 370 and 200)
 
             _spriteBatch.Draw(skeletonhandtexture, new Vector2(10, 0), Color.White);
             _spriteBatch.End();
