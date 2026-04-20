@@ -9,7 +9,13 @@ namespace Monogame_1._1___Titles__textures__and_colours__Assignment_
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        rectangle window;
+        Texture2D dovetexture;
+        Texture2D bordertexture;
+        Texture2D cloudtexture;
+        Texture2D handtexture;
+        Texture2D aurabgtexture;
+
+        Rectangle window;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -19,9 +25,12 @@ namespace Monogame_1._1___Titles__textures__and_colours__Assignment_
 
         protected override void Initialize()
         {
-            window = new rectangle(0, 0, 800, 500);
-            PreferredBackBufferWidth = 800;
-            PreferredBackBufferHeight = 500;
+            window = new Rectangle(0, 0, 800, 500);
+            _graphics.PreferredBackBufferWidth = 800;
+            _graphics.PreferredBackBufferHeight = 500;
+            _graphics.ApplyChanges();   
+
+            this.Window.Title = "Monogame 1.1 - Titles, Textures, and Colours (Assignment)";
 
             base.Initialize();
         }
@@ -30,15 +39,17 @@ namespace Monogame_1._1___Titles__textures__and_colours__Assignment_
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            aurabgtexture = Content.Load<Texture2D>("Aura");
+            bordertexture = Content.Load<Texture2D>("Border");
+            cloudtexture = Content.Load<Texture2D>("Clouds");
+            handtexture = Content.Load<Texture2D>("Hand");
+            dovetexture = Content.Load<Texture2D>("Dove");
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            // TODO: Add your update logic here
 
             base.Update(gameTime);
         }
@@ -47,7 +58,12 @@ namespace Monogame_1._1___Titles__textures__and_colours__Assignment_
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            this.window.
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(aurabgtexture, new Vector2(0, 0), Color.Red);
+            _spriteBatch.Draw(bordertexture, new Vector2(0, 0), Color.Blue);
+            _spriteBatch.Draw(dovetexture, new Vector2(10, 100), Color.White);
+            _spriteBatch.Draw(cloudtexture, new Vector2(200, 100), Color.Black);
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
