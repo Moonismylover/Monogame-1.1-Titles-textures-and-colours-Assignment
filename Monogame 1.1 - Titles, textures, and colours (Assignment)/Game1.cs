@@ -19,6 +19,8 @@ namespace Monogame_1._1___Titles__textures__and_colours__Assignment_
         Texture2D hearttexture;
 
         int randomX, randomY;
+        Random generator = new Random();
+
 
         Rectangle window;
         public Game1()
@@ -37,12 +39,12 @@ namespace Monogame_1._1___Titles__textures__and_colours__Assignment_
 
             this.Window.Title = "Monogame 1.1 - Titles, Textures, and Colours (Assignment)";
 
-            Random generator = new Random();
 
-            randomX = generator.Next(0, window.Width);
-            randomY = generator.Next(0, window.Height);
+            
 
             base.Initialize();
+            randomX = generator.Next(0, window.Width - dovetexture.Width);
+            randomY = generator.Next(0, window.Height - dovetexture.Height);
         }
 
         protected override void LoadContent()
@@ -53,7 +55,7 @@ namespace Monogame_1._1___Titles__textures__and_colours__Assignment_
             bordertexture = Content.Load<Texture2D>("Borderimg");
             cloudtexture = Content.Load<Texture2D>("blackcloud");
             skeletonhandtexture = Content.Load<Texture2D>("skeletonhand");
-            dovetexture = Content.Load<Texture2D>("whitedove");
+            dovetexture = Content.Load<Texture2D>("dove");
             glowtexture = Content.Load<Texture2D>("Glow");
             hearttexture = Content.Load<Texture2D>("Heart");
         }
